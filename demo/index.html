@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script src="../lib/event-emitter.min.js"></script>
+<script>
+    console.log('------------')
+
+    let event = new Event('nolog')
+
+    function init1() {
+        console.log('init1')
+    }
+
+    function init2() {
+        console.log('init2')
+    }
+
+    function init3() {
+        console.log('init2')
+    }
+    function init4() {
+        console.log('init2')
+    }
+    function init5() {
+        console.log('init2')
+    }
+    function init6() {
+        console.log('init2')
+    }
+
+    function init7() {
+        console.log('init2')
+    }
+
+    function init8() {
+        console.log('init2')
+    }
+
+    event.on('init', init1)
+            .on('init', init2)
+            .on('init', init3)
+            .on('init', init4)
+            .on('init', init5)
+            .setMaxListeners(5)
+            .on('init', init6)
+            .on('init', init7)
+            .on('init', init8)
+            .catch(errCode => {
+                console.log(errCode)
+            })
+
+    console.log(event)
+
+    event.emit('init')
+
+    event.removeAllListeners()
+
+    event.emit('init')
+    event.emit('init')
+    event.emit('init')
+
+    // console.log(2 > 3 ? 3 > 4 ? 1 : 2 : 3 )
+</script>
+
+</body>
+</html>
