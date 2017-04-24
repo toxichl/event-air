@@ -9,11 +9,14 @@
 </head>
 <body>
 
-<script src="../lib/event-emitter.min.js"></script>
+<script src="../lib/test.js"></script>
 <script>
+
+    console.log(window)
+
     console.log('------------')
 
-    let event = new Event('nolog')
+    let event = new $Event('nolog')
 
     function init1() {
         console.log('init1')

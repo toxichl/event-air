@@ -1,8 +1,11 @@
 {
+  "name": "event-air",
+  "version": "1.0.5",
+  "main": "lib/event-air.min.js",
   "scripts": {
     "dev": "node build/build.js",
     "build": "node build/build.js -p",
-    "eslint": "./node_modules/.bin/eslint --init",
+    "eslint": "eslint --init",
     "debug": "devtool test/test.js --watch",
     "dev:es6": "devtool -w -r babel-register src/index.js",
     "dev:es5": "devtool src/index.js -w"
@@ -20,10 +23,18 @@
     "rollup-plugin-uglify": "^1.0.1",
     "yargs": "^7.0.2"
   },
-  "bin": {
-    "ct": "build/build"
+  "description": "- 实现了`Node.js EventEmitter`模块的所有功能\r - 将`on()`和`addListener()`方法合并\r - 兼容所有支持`ES5`的浏览器（IE9+）",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toxichl/event-emiiter.git"
   },
-  "dependencies": {
-    "debug": "^2.6.3"
-  }
+  "keywords": [
+    "event"
+  ],
+  "author": "toxichl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toxichl/event-emiiter/issues"
+  },
+  "homepage": "https://github.com/toxichl/event-emiiter#readme"
 }

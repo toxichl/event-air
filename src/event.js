@@ -2,14 +2,14 @@
  * EventEmitter
  */
 
-export default function Event() {
+export default function EventAir() {
     this.__openlog__ = arguments && arguments[0] === 'openlog' ? 0 : 1
     this.__maxListeners__ = 5
     this.stack = []
 }
 
 // Log
-Event.log = {
+EventAir.log = {
     repeatRegister: name => {
         console.info(`[Warning] event ${name} has been registered`)
     },
@@ -26,7 +26,7 @@ Event.log = {
  * @param name
  * @returns {*}
  */
-Event.prototype.getEventByName = function (name) {
+EventAir.prototype.getEventByName = function (name) {
     return this.stack.find(event => event.name === name)
 }
 
@@ -38,7 +38,7 @@ Event.prototype.getEventByName = function (name) {
  * @param listener
  * @returns {T}
  */
-Event.prototype.getListener = function (event, listener) {
+EventAir.prototype.getListener = function (event, listener) {
     return event ? event.listeners.find(l => l === listener) : void 0
 }
 
@@ -47,7 +47,7 @@ Event.prototype.getListener = function (event, listener) {
  * @param n
  * @returns {Event}
  */
-Event.prototype.setMaxListeners = function (n) {
+EventAir.prototype.setMaxListeners = function (n) {
     this.__maxListeners__ = n
     return this;
 }
@@ -60,7 +60,7 @@ Event.prototype.setMaxListeners = function (n) {
  * @returns {Event}
  * @private
  */
-Event.prototype._baseRegister = function (name, listener, typeId) {
+EventAir.prototype._baseRegister = function (name, listener, typeId) {
 
     let _event = this.getEventByName(name),
         _listener = this.getListener(_event, listener),
@@ -91,7 +91,7 @@ Event.prototype._baseRegister = function (name, listener, typeId) {
  * @param name
  * @param listener
  */
-Event.prototype.on = function (name, listener) {
+EventAir.prototype.on = function (name, listener) {
     return this._baseRegister(name, listener, 1)
 }
 
@@ -103,7 +103,7 @@ Event.prototype.on = function (name, listener) {
  * @param name
  * @param listener
  */
-Event.prototype.once = function (name, listener) {
+EventAir.prototype.once = function (name, listener) {
     return this._baseRegister(name, listener, 2)
 }
 
@@ -113,7 +113,7 @@ Event.prototype.once = function (name, listener) {
  * @param statusCode
  * @private
  */
-Event.prototype._baseCatch = function (statusCode) {
+EventAir.prototype._baseCatch = function (statusCode) {
 
     if (this.errorCatch)
         this.errorCatch(statusCode);
@@ -126,7 +126,7 @@ Event.prototype._baseCatch = function (statusCode) {
  * @param name
  * @returns {Event}
  */
-Event.prototype.emit = function (name) {
+EventAir.prototype.emit = function (name) {
 
     let _event = this.getEventByName(name)
 
@@ -166,7 +166,7 @@ Event.prototype.emit = function (name) {
  * @param listener
  * @returns {Event}
  */
-Event.prototype.removeListener = function (name, listener) {
+EventAir.prototype.removeListener = function (name, listener) {
 
     let _event = this.getEventByName(name),
         _listener = this.getListener(_event, listener);
@@ -197,7 +197,7 @@ Event.prototype.removeListener = function (name, listener) {
  * then removes all listeners for the specified event.
  * @returns {Event}
  */
-Event.prototype.removeAllListeners = function () {
+EventAir.prototype.removeAllListeners = function () {
 
     // no arguments
     if (arguments.length === 0) {
@@ -224,7 +224,7 @@ Event.prototype.removeAllListeners = function () {
  * @param name
  * @returns {Array|Event.listeners|*}
  */
-Event.prototype.listeners = function (name) {
+EventAir.prototype.listeners = function (name) {
 
     let _event = this.getEventByName(name)
 
@@ -236,11 +236,8 @@ Event.prototype.listeners = function (name) {
  * Catch Error
  * @param func
  */
-Event.prototype.catch = function (func) {
+EventAir.prototype.catch = function (func) {
     this.errorCatch = typeof func === 'function' ? func : null
 }
 
 
-if (!window.Event) {
-    window.Event = Event
-}
