@@ -3,6 +3,9 @@
  */
 
 export default function EventAir() {
+    if (this instanceof EventAir) {
+        return new EventAir()
+    }
     this.__openlog__ = arguments && arguments[0] === 'openlog' ? 0 : 1
     this.__maxListeners__ = 5
     this.stack = []
