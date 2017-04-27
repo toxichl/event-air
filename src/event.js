@@ -244,3 +244,6 @@ EventAir.prototype.catch = function (func) {
 }
 
 
+if (!window.$Event) {
+    window.$Event = EventAir
+}
