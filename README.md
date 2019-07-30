@@ -1,5 +1,7 @@
 # event-emiiter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ulivz/event-air.svg)](https://greenkeeper.io/)
+
 ## 特性
 
 - 实现了`Node.js EventEmitter`模块的所有功能
