@@ -14,14 +14,14 @@
     "babel-preset-env": "^1.3.2",
     "babel-preset-es2015-rollup": "^3.0.0",
     "babel-register": "^6.11.6",
-    "rollup": "^0.41.6",
-    "rollup-plugin-babel": "^2.7.1",
-    "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-eslint": "^3.0.0",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-replace": "^1.1.1",
-    "rollup-plugin-uglify": "^1.0.1",
-    "yargs": "^7.0.2"
+    "rollup": "^1.17.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-uglify": "^6.0.2",
+    "yargs": "^13.3.0"
   },
   "description": "- 实现了`Node.js EventEmitter`模块的所有功能\r - 将`on()`和`addListener()`方法合并\r - 兼容所有支持`ES5`的浏览器（IE9+）",
   "repository": {
